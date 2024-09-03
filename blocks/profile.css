@@ -1,0 +1,86 @@
+.profile {
+    border-bottom: 1px solid #21212166;
+    margin: 34px 80px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile__avatar-section {
+    display: flex;
+    flex-direction: row;
+    height: 210px;
+    gap: 20px;
+}
+
+.profile__pic {
+    width: 190px;
+    height: 190px;
+}
+
+.profile__info {
+    max-width: 420px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile__info_text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile__name {
+    margin: 0;
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size: 32px;
+    color: #212121;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.profile__description {
+    margin: 0;
+    font-family: "Poppins";
+    font-weight: 500;
+    line-height: 16px;
+    font-size: 16px;
+    color: #212121;
+    opacity: 70%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+}
+
+.profile__edit-button {
+    border: none;
+    background-color: #fcf5e5;
+}
+
+.profile__button-image {
+    width: 84px;
+    height: 16px;
+    opacity: 70%;
+}
+
+.profile__button-image:hover {
+    opacity: 100%;
+}
+
+.profile__new-post {
+    background-color: #fcf5e5;
+    border: none;
+    margin: auto 0 20px auto;
+}
