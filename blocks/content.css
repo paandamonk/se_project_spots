@@ -4,7 +4,7 @@
   margin: 34px auto 0 auto;
 }
 
-@media screen and (min-device-width: 320px) and (max-device-width: 630px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 885px) {
   .content {
     margin: 20px auto 0 auto;
   }

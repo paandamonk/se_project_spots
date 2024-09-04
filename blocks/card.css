@@ -45,7 +45,7 @@
   opacity: 100%;
 }
 
-@media screen and (min-device-width: 320px) and (max-device-width: 630px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 885px) {
   .card {
     margin: 0;
     display: flex;
