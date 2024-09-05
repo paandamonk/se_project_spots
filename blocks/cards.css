@@ -15,12 +15,8 @@
 
 @media screen and (min-device-width: 320px) and (max-device-width: 885px) {
   .cards__list {
-    display: grid;
     grid-template-columns: repeat(auto-fit, 288px);
-    border-bottom: 1px solid #21212166;
     margin-top: 20px;
-    padding-bottom: 40px;
-    justify-content: center;
     max-width: 288px;
   }
 }

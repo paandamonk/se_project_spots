@@ -6,21 +6,17 @@
   max-width: 1280px;
   margin: 34px 0 0 0;
 }
-
 .profile__avatar-section {
   display: flex;
   flex-direction: row;
-  height: 210px;
   gap: 20px;
 }
-
 .profile__pic {
   width: 190px;
   height: 190px;
   display: block;
   border-radius: 8%;
 }
-
 .profile__info {
   max-width: 420px;
   margin-top: 0;
@@ -30,18 +26,17 @@
   justify-content: space-between;
   align-items: flex-start;
 }
-
-.profile__info_text {
+.profile__text-group {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .profile__name {
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
+  line-height: 32px;
   color: #212121;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -50,10 +45,9 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-
 .profile__description {
   margin: 0;
-  font-family: "Poppins";
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   line-height: 16px;
   font-size: 16px;
@@ -66,35 +60,37 @@
   -webkit-box-orient: vertical;
   line-clamp: 3;
 }
-
 .profile__edit-button {
   padding: 0;
   display: flex;
   border: none;
-  background-color: #fcf5e5;
+  color: #212121;
+  background-color: transparent;
   opacity: 70%;
   align-items: center;
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
   text-align: left;
+  cursor: pointer;
 }
-
-.profile__button-image {
-  margin: 0 8px 0 0;
+.profile__edit-button::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url(../images/edit.svg);
+  margin-right: 8px;
 }
-
 .profile__edit-button:hover {
   opacity: 100%;
 }
-
 .profile__new-post {
   width: 149px;
-  height: 52px;
+  padding: 16px;
   border: none;
   border-radius: 8px;
-  font-family: "Poppins";
+  font-family: "Poppins", Arial, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
@@ -102,128 +98,53 @@
   background-color: #212121;
   color: #fcf5e5;
   margin: auto 0 20px auto;
+  cursor: pointer;
 }
-
 .profile__new-post:hover {
   opacity: 80%;
 }
-
 @media screen and (min-device-width: 320px) and (max-device-width: 885px) {
   .profile {
-    border-bottom: 1px solid #21212166;
     margin: 20px 16px;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     max-width: 288px;
   }
-
   .profile__avatar-section {
-    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 0 20px 20px;
-    gap: 20px;
   }
-
   .profile__pic {
     width: 80px;
     height: 80px;
     margin-bottom: 12px;
-    border-radius: 8%;
-    display: block;
   }
-
   .profile__info {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 32px;
   }
-
-  .profile__info_text {
+  .profile__text-group {
     max-width: 288px;
     margin-top: 0;
-    display: flex;
-    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 6px;
   }
-
   .profile__name {
     text-align: center;
-    margin: 0;
-    font-family: "Poppins";
-    font-weight: 500;
     font-size: 20px;
-    color: #212121;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    line-clamp: 3;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
   }
-
   .profile__description {
     text-align: center;
-    margin: 0;
-    font-family: "Poppins";
-    font-weight: 500;
-    line-height: 16px;
-    font-size: 16px;
-    color: #212121;
-    opacity: 70%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    line-clamp: 3;
   }
-
   .profile__edit-button {
-    padding: 0;
-    display: flex;
-    border: none;
-    background-color: #fcf5e5;
-    opacity: 70%;
     align-items: center;
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 16px;
     text-align: left;
   }
-
-  .profile__button-image {
-    margin: 0 8px 0 0;
-  }
-
-  .profile__button-image:hover {
-    opacity: 100%;
-  }
-
   .profile__new-post {
     width: 280px;
-    height: 52px;
     gap: 8px;
-    border: none;
-    border-radius: 8px;
-    font-family: "Poppins";
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 16px;
-    text-align: center;
-    background-color: #212121;
-    color: #fcf5e5;
     margin: 0 auto 20px;
-    padding: 0;
-  }
-
-  .profile__new-post:hover {
-    opacity: 80%;
   }
 }
