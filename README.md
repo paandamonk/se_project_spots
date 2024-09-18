@@ -22,4 +22,4 @@ Provided is a link to the github code as well as the github pages to load the pr
   
 Here is a link to a video detailing the functionality of the project, across varying browsers: 
 
-https://youtu.be/t5H0jyc7Hco
+https://youtu.be/PWhLEXoUqaA
