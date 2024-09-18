@@ -2,20 +2,24 @@
 
 ### Overview  
 
-* Intro  
-* Figma  
-* Images  
+* Description
+* Github Pages
+* Video  
   
-**Intro**
+**Description**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+This project was build using a combination of using grid and flex layouts as well as @media to implement a responsive design for a web page at varying screen sizes, from desktop to smart phone. The web page itself is a media sharing platform where users can upload images for others to see (not yet implemented).
   
-**Figma**  
+**Github Pages**  
   
-* [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
+Provided is a link to the github code as well as the github pages to load the project: 
+
+1. https://paandamonk.github.io/se_project_spots/
+2. https://github.com/paandamonk/se_project_spots
+
+
+**Video**  
   
-**Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+Here is a link to a video detailing the functionality of the project, across varying browsers: 
+
+https://youtu.be/t5H0jyc7Hco

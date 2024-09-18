@@ -38,6 +38,7 @@
   border: none;
   background-size: contain;
   cursor: pointer;
+  background-repeat: no-repeat;
 }
 .card__like-button:hover {
   opacity: 100%;
@@ -59,5 +60,8 @@
   .card__like-button {
     width: 20px;
     height: 18px;
+  }
+  .card__details {
+    margin-top: 0;
   }
 }
