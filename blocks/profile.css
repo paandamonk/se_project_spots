@@ -16,6 +16,7 @@
   height: 190px;
   display: block;
   border-radius: 8%;
+  margin-bottom: 20px;
 }
 .profile__info {
   max-width: 420px;
@@ -118,6 +119,7 @@
   .profile__pic {
     width: 80px;
     height: 80px;
+    margin-bottom: 0;
   }
   .profile__info {
     align-items: center;
