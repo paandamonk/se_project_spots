@@ -24,3 +24,28 @@ let initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
 ];
+
+
+
+
+let editBtn = document.querySelector(".profile__edit-button");
+let addBtn = document.querySelector(".profile__new-post");
+let submitBtn = document.querySelector(".modal__submit-button");
+let closeModalBtn = document.querySelector(".modal__close-button");
+
+
+editBtn.addEventListener("click", editProfile);
+closeModalBtn.addEventListener("click", closeEditProfile);
+
+
+
+
+function editProfile() {
+  let modal = document.querySelector(".modal");
+  modal.classList.add("modal_opened");
+}
+
+function closeEditProfile() {
+  let modal = document.querySelector(".modal");
+  modal.classList.remove("modal_opened");
+}
