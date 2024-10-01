@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="pages/index.css" />
     <title>Spots</title>
   </head>
+
+  <template id="edit-profile">
+    <div class="profile__text-group">
+      <h1 class="profile__name"></h1>
+      <p class="profile__description"></p>
+    </div>
+  </template>
+
   <body>
     <div class="page">
       <header class="header">
@@ -29,8 +37,8 @@
               alt="Profile Picture"
               class="profile__pic"
             />
-            <div class="profile__info">
-              <div class="profile__text-group">
+            <div class="profile__info" >
+              <div class="profile__text-group" id="edit-profile">
                 <h1 class="profile__name">Bessie Coleman</h1>
                 <p class="profile__description">Civil Aviator</p>
               </div>
@@ -43,72 +51,19 @@
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
-            <li class="card">
-              <img
-                src="images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="photo by Moritz Feldmann"
-                class="card__image"
-              />
-              <div class="card__details">
-                <h2 class="card__name">Moritz Feldmann</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="images/2-photo-by-ceiline-from-pexels.jpg"
-                alt="photo by Ceiline"
-                class="card__image"
-              />
-              <div class="card__details">
-                <h2 class="card__name">Ceiline</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-                alt="photo by Tubanur Dogan"
-                class="card__image"
-              />
-              <div class="card__details">
-                <h2 class="card__name">Tubanur Dogan</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="images/4-photo-by-maurice-laschet-from-pexels.jpg"
-                alt="photo by Maurice Laschet"
-                class="card__image"
-              />
-              <div class="card__details">
-                <h2 class="card__name">Maurice Laschet</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-                alt="photo by Van Anh Nguyen"
-                class="card__image"
-              />
-              <div class="card__details">
-                <h2 class="card__name">Van Anh Nguyen</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-                alt="photo by Moritz Feldmann"
-                class="card__image"
-              />
-              <div class="card__details">
-                <h2 class="card__name">Moritz Feldmann again</h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
+            <template id="card">
+              <li class="card">
+                <img
+                  src=""
+                  alt=""
+                  class="card__image"
+                />
+                <div class="card__details">
+                  <h2 class="card__name"></h2>
+                  <button class="card__like-button" type="button"></button>
+                </div>
+              </li>
+            </template>
           </ul>
         </section>
       </main>
