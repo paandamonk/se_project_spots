@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  visibility:hidden;
+  visibility: hidden;
 }
 
 .modal_opened {
@@ -17,6 +17,7 @@
 }
 
 .modal__container {
+  box-sizing: border-box;
   background: white;
   padding: 32px 50px;
   max-width: 730px;
@@ -97,7 +98,7 @@
 
 @media screen and (min-device-width: 320px) and (max-device-width: 885px) {
   .modal__container {
-    max-width: 276px;
+    max-width: 300px;
     padding: 12px 12px;
   }
 
@@ -119,5 +120,9 @@
   .modal__close-button {
     top: 12px;
     right: 12px;
+  }
+
+  .modal__label {
+    margin-bottom: 24px;
   }
 }

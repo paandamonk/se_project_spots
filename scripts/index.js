@@ -1,4 +1,4 @@
-let initialCards = [
+const initialCards = [
   {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -53,8 +53,6 @@ function getCardElement(data) {
   }
 }
 
-
-
 let editBtn = document.querySelector(".profile__edit-button");
 let addBtn = document.querySelector(".profile__new-post");
 let submitBtn = document.querySelector(".modal__submit-button");
@@ -66,8 +64,7 @@ const inputName = document.querySelector("#name");
 const inputDesc = document.querySelector("#description");
 const formElement = document.querySelector(".modal__form");
 
-
 editBtn.addEventListener("click", openEditProfile);
 closeModalBtn.addEventListener("click", closeEditProfile);
-formElement.addEventListener('submit', handleProfileFormSubmit);
+formElement.addEventListener("submit", handleProfileFormSubmit);
 getCardElement(initialCards);

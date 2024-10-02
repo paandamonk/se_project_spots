@@ -16,14 +16,6 @@
     <link rel="stylesheet" href="pages/index.css" />
     <title>Spots</title>
   </head>
-
-  <template id="edit-profile">
-    <div class="profile__text-group">
-      <h1 class="profile__name"></h1>
-      <p class="profile__description"></p>
-    </div>
-  </template>
-
   <body>
     <div class="page">
       <header class="header">
@@ -37,7 +29,7 @@
               alt="Profile Picture"
               class="profile__pic"
             />
-            <div class="profile__info" >
+            <div class="profile__info">
               <div class="profile__text-group" id="edit-profile">
                 <h1 class="profile__name">Bessie Coleman</h1>
                 <p class="profile__description">Civil Aviator</p>
@@ -53,11 +45,7 @@
           <ul class="cards__list">
             <template id="card">
               <li class="card">
-                <img
-                  src=""
-                  alt=""
-                  class="card__image"
-                />
+                <img src="" alt="" class="card__image" />
                 <div class="card__details">
                   <h2 class="card__name"></h2>
                   <button class="card__like-button" type="button"></button>
@@ -72,7 +60,7 @@
       </footer>
       <div class="modal">
         <div class="modal__container">
-          <button type="submit" class="modal__close-button"></button>
+          <button type="button" class="modal__close-button"></button>
           <h2 class="modal__title">Edit profile</h2>
           <form name="edit-profile" class="modal__form">
             <label for="name" class="modal__label">
