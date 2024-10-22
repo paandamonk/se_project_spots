@@ -30,6 +30,7 @@ function getCardElement(item) {
   let cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+  const cardImage = cardElement.querySelector(".card__image");
 
   cardElement.querySelector(".card__name").textContent = item.name;
   cardElement.querySelector(".card__image").src = item.link;
@@ -41,6 +42,21 @@ function getCardElement(item) {
 
   cardDeleteBtn.addEventListener("click", () => {
     cardList.removeChild(cardElement);
+  });
+
+  cardImage.addEventListener("click", () => {
+    let imagePopup = document.querySelector(".image-popup");
+
+    imagePopup.querySelector(".image-popup__image").src = item.link;
+    imagePopup.querySelector(".image-popup__image").alt = item.name;
+    imagePopup.querySelector(".image-popup__title").textContent = item.name;
+
+    imagePopup.classList.add("image-popup_opened");
+
+    const PopupCloseBtn = document.querySelector(".image-popup__close-button");
+    PopupCloseBtn.addEventListener("click", () => {
+      imagePopup.classList.remove("image-popup_opened");
+    });
   });
 
   return cardElement;
@@ -103,8 +119,23 @@ AddCardForm.addEventListener("submit", (evt) => {
   });
 
   cardList.prepend(cardElement);
-
   closeModal(addModal);
+  const cardImage = cardElement.querySelector(".card__image");
+  cardImage.addEventListener("click", () => {
+    let imagePopup = document.querySelector(".image-popup");
+
+    imagePopup.querySelector(".image-popup__image").src = inputLink.value;
+    imagePopup.querySelector(".image-popup__image").alt = inputCaption.value;
+    imagePopup.querySelector(".image-popup__title").textContent =
+      inputCaption.value;
+
+    imagePopup.classList.add("image-popup_opened");
+
+    const PopupCloseBtn = document.querySelector(".image-popup__close-button");
+    PopupCloseBtn.addEventListener("click", () => {
+      imagePopup.classList.remove("image-popup_opened");
+    });
+  });
 });
 
 editBtn.addEventListener("click", () => {
