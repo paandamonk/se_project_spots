@@ -63,7 +63,7 @@
         <div class="modal__container">
           <button
             type="button"
-            class="modal__close-button"
+            class="modal__close-button modal__close"
             id="edit-profile-close-button"
           ></button>
           <h2 class="modal__title">Edit profile</h2>
@@ -94,7 +94,7 @@
         <div class="modal__container">
           <button
             type="button"
-            class="modal__close-button"
+            class="modal__close-button modal__close"
             id="add-card-close-button"
           ></button>
           <h2 class="modal__title">New post</h2>
@@ -124,13 +124,16 @@
         </div>
       </div>
     </div>
-    <div class="image-popup">
+    <div class="image-popup modal">
       <div class="image-popup__container">
         <img src="" alt="this is a test" class="image-popup__image" />
         <h2 class="image-popup__title-holder">
           <span class="image-popup__title"></span>
         </h2>
-        <button class="image-popup__close-button" type="button"></button>
+        <button
+          class="image-popup__close-button modal__close"
+          type="button"
+        ></button>
       </div>
     </div>
     <script src="scripts/index.js"></script>
