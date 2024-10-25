@@ -66,6 +66,8 @@
 
   .image-popup__image {
     order: 2;
+    max-width: 90vw;
+    max-height: 90vh;
   }
 
   .image-popup__title-holder {

@@ -107,11 +107,10 @@ AddCardForm.addEventListener("submit", (evt) => {
   closeModal(addModal);
 
   cardImage.addEventListener("click", () => {
-    imagePopup.querySelector(".image-popup__image").src = inputLink.value;
-    imagePopup.querySelector(".image-popup__image").alt = inputCaption.value;
+    imagePopup.querySelector(".image-popup__image").src = inputCard.link;
+    imagePopup.querySelector(".image-popup__image").alt = inputCard.name;
     imagePopup.querySelector(".image-popup__title").textContent =
-      inputCaption.value;
-
+      inputCard.name;
     openModal(imagePopup);
   });
 
