@@ -72,7 +72,7 @@ const profileDesc = document.querySelector(".profile__description");
 const inputName = document.querySelector("#name");
 const inputDesc = document.querySelector("#description");
 const editProfileForm = document.forms["edit-profile-form"];
-const AddCardForm = document.forms["add-card-form"];
+const addCardForm = document.forms["add-card-form"];
 const inputLink = document.querySelector("#add-card-link-input");
 const inputCaption = document.querySelector("#add-card-caption-input");
 const popupImage = imagePopup.querySelector(".image-popup__image");
@@ -85,7 +85,7 @@ editProfileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
 });
 
-AddCardForm.addEventListener("submit", (evt) => {
+addCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const inputCard = { name: inputCaption.value, link: inputLink.value };
   const cardElement = getCardElement(inputCard);
