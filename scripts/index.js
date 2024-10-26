@@ -88,20 +88,11 @@ EditProfileForm.addEventListener("submit", (evt) => {
 
 AddCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  let cardList = document.querySelector(".cards__list");
   const inputCard = { name: inputCaption.value, link: inputLink.value };
   const cardElement = getCardElement(inputCard);
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
   const cardImage = cardElement.querySelector(".card__image");
-
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-button_liked");
-  });
-
-  cardDeleteBtn.addEventListener("click", () => {
-    cardList.removeChild(cardElement);
-  });
 
   cardList.prepend(cardElement);
   closeModal(addModal);
