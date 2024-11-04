@@ -1,3 +1,4 @@
+//initial list of cards
 const initialCards = [
   {
     name: "Val Thorens",
@@ -25,6 +26,7 @@ const initialCards = [
   },
 ];
 
+//function used to return a card element whenever called.
 function getCardElement(item) {
   const cardTemplate = document.querySelector("#card").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
@@ -36,14 +38,17 @@ function getCardElement(item) {
   cardImage.src = item.link;
   cardImage.alt = item.name;
 
+  //adds event listener for the like button. toggles if the card is liked or not
   cardLikeBtn.addEventListener("click", () => {
     cardLikeBtn.classList.toggle("card__like-button_liked");
   });
 
+  //adds event listener for the delete button. removes card from the list
   cardDeleteBtn.addEventListener("click", () => {
     cardList.removeChild(cardElement);
   });
 
+  //add event listener for the card image. opens up the imagePopup modal when clicking on a card image
   cardImage.addEventListener("click", () => {
     popupImage.src = item.link;
     popupImage.alt = item.name;
@@ -52,13 +57,18 @@ function getCardElement(item) {
   });
   return cardElement;
 }
+
+//generic open modal function
 function openModal(modal) {
   modal.classList.add("modal_opened");
 }
+
+//generic close modal function
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+//all the constant elements used multiple times throughout
 const cardList = document.querySelector(".cards__list");
 const editBtn = document.querySelector(".profile__edit-button");
 const addBtn = document.querySelector(".profile__new-post");
@@ -78,6 +88,7 @@ const inputCaption = document.querySelector("#add-card-caption-input");
 const popupImage = imagePopup.querySelector(".image-popup__image");
 const popupTitle = imagePopup.querySelector(".image-popup__title");
 
+//Saves profile info and closes the modal.
 editProfileForm.addEventListener("submit", (evt) => {
   profileName.textContent = inputName.value;
   profileDesc.textContent = inputDesc.value;
@@ -85,6 +96,7 @@ editProfileForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
 });
 
+//creates a new card, adds it to the card list, and closes the modal. also clears the input text.
 addCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const inputCard = { name: inputCaption.value, link: inputLink.value };
@@ -95,19 +107,26 @@ addCardForm.addEventListener("submit", (evt) => {
   inputLink.value = "";
 });
 
+//opens the edit profile modal
 editBtn.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputDesc.value = profileDesc.textContent;
   openModal(editModal);
 });
+
+//opens the add card modal
 addBtn.addEventListener("click", () => {
   openModal(addModal);
 });
+
+//iterates over all the close buttons in the document to close any modal that is opened upon clicking.
 const closeButtons = document.querySelectorAll(".modal__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
 });
+
+//creates the initial card list upon opening the page.
 initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardList.append(cardElement);
