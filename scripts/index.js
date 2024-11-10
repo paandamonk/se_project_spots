@@ -68,6 +68,11 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+//generic card like button toggle
+function togglelike(button) {
+  button.classList.toggle("card__like-button_liked");
+}
+
 //all the constant elements used multiple times throughout
 const cardList = document.querySelector(".cards__list");
 const editBtn = document.querySelector(".profile__edit-button");
@@ -103,8 +108,7 @@ addCardForm.addEventListener("submit", (evt) => {
   const cardElement = getCardElement(inputCard);
   cardList.prepend(cardElement);
   closeModal(addModal);
-  inputCaption.value = "";
-  inputLink.value = "";
+  addCardForm.reset();
 });
 
 //opens the edit profile modal
@@ -125,6 +129,13 @@ closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
 });
+
+//iterates over all like buttons in the document
+const cardLikeBtns = document.querySelectorAll(".card__like-button");
+cardLikeBtns.forEach((button) => {
+  const likeButton = button.closest(".card");
+  button.addEventListener("click", toggleLike(likeButton));
+})
 
 //creates the initial card list upon opening the page.
 initialCards.forEach((item) => {
