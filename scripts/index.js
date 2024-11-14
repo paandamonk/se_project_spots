@@ -68,11 +68,6 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
-//generic card like button toggle
-function togglelike(button) {
-  button.classList.toggle("card__like-button_liked");
-}
-
 //all the constant elements used multiple times throughout
 const cardList = document.querySelector(".cards__list");
 const editBtn = document.querySelector(".profile__edit-button");
@@ -80,8 +75,6 @@ const addBtn = document.querySelector(".profile__new-post");
 const addModal = document.querySelector("#add-modal");
 const editModal = document.querySelector("#edit-modal");
 const imagePopup = document.querySelector(".image-popup");
-const closeEditModalBtn = document.querySelector("#edit-profile-close-button");
-const closeAddCardModalBtn = document.querySelector("#add-card-close-button");
 const profileName = document.querySelector(".profile__name");
 const profileDesc = document.querySelector(".profile__description");
 const inputName = document.querySelector("#name");
@@ -92,6 +85,29 @@ const inputLink = document.querySelector("#add-card-link-input");
 const inputCaption = document.querySelector("#add-card-caption-input");
 const popupImage = imagePopup.querySelector(".image-popup__image");
 const popupTitle = imagePopup.querySelector(".image-popup__title");
+const allModals = document.querySelectorAll(".modal");
+
+//iterates through all modals and adds event listeners to close them.
+document.addEventListener("keydown", (evt) => {
+  if (evt.key === "Escape") {
+    allModals.forEach((modal) => {
+      if (modal.classList.contains("modal_opened")) {
+        closeModal(modal);
+      }
+    });
+  }
+});
+allModals.forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    if (!evt.target.closest(".modal__container")) {
+      closeModal(modal);
+    }
+  });
+});
+
+//TODO
+//add event listener for clicking off the modal
+//fix event listener for hitting escape
 
 //Saves profile info and closes the modal.
 editProfileForm.addEventListener("submit", (evt) => {
@@ -135,7 +151,7 @@ const cardLikeBtns = document.querySelectorAll(".card__like-button");
 cardLikeBtns.forEach((button) => {
   const likeButton = button.closest(".card");
   button.addEventListener("click", toggleLike(likeButton));
-})
+});
 
 //creates the initial card list upon opening the page.
 initialCards.forEach((item) => {

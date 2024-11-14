@@ -79,7 +79,7 @@
                 maxlength="40"
                 required
               />
-              <span class="modal__error"></span>
+              <span class="modal__error name-error"></span>
             </label>
             <label for="description" class="modal__label">
               Description
@@ -92,7 +92,7 @@
                 maxlength="200"
                 required
               />
-              <span class="modal__error"></span>
+              <span class="modal__error description-error"></span>
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
           </form>
@@ -117,21 +117,21 @@
                 placeholder="Paste a link to the picture"
                 required
               />
-              <span class="modal__error"></span>
+              <span class="modal__error add-card-link-input-error"></span>
             </label>
             <label for="add-card-caption-input" class="modal__label">
               Caption
               <input
                 id="add-card-caption-input"
                 type="text"
-                name="name"
+                name="caption"
                 class="modal__input"
                 placeholder="Type your caption"
-                min="2"
+                minlength="2"
                 maxlength="30"
                 required
               />
-              <span class="modal__error"></span>
+              <span class="modal__error add-card-caption-input-error"></span>
             </label>
             <button type="submit" class="modal__submit-button">Save</button>
           </form>
@@ -154,7 +154,7 @@
         ></button>
       </div>
     </div>
-    <script defer src="scripts/index.js"></script>
     <script defer src="scripts/validation.js"></script>
+    <script defer src="scripts/index.js"></script>
   </body>
 </html>

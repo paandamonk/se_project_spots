@@ -79,12 +79,18 @@
   font-weight: 500;
 }
 
-.modal__input:hover {
+.modal__input:not(.modal__input_type_error):hover {
   border-color: #212121;
 }
 
-/* TODO -
-USE CORRECT COLOR AND FONT SIZES */
+.modal__input_type_error {
+  border-color: #ff000099;
+}
+
+.modal__input:focus {
+  outline: none;
+}
+
 .modal__error {
   display: block;
   color: #ff0000b2;
@@ -107,12 +113,17 @@ USE CORRECT COLOR AND FONT SIZES */
   border-radius: 8px;
 }
 
-.modal__submit-button:hover {
+.modal__submit-button:not(.button_inactive):hover {
   opacity: 80%;
 }
 
 .modal__close-button:hover {
   opacity: 100%;
+}
+
+.button_inactive {
+  opacity: 50%;
+  cursor: not-allowed;
 }
 
 @media screen and (min-device-width: 320px) and (max-device-width: 885px) {
