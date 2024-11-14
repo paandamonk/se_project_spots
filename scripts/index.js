@@ -87,7 +87,7 @@ const popupImage = imagePopup.querySelector(".image-popup__image");
 const popupTitle = imagePopup.querySelector(".image-popup__title");
 const allModals = document.querySelectorAll(".modal");
 
-//iterates through all modals and adds event listeners to close them.
+//Adds a keydown event listener to the document, so that if a modal is opened, hitting escape will close it.
 document.addEventListener("keydown", (evt) => {
   if (evt.key === "Escape") {
     allModals.forEach((modal) => {
@@ -97,6 +97,8 @@ document.addEventListener("keydown", (evt) => {
     });
   }
 });
+
+//Adds a "click" event listener to close the modal if a click is detected off the container.
 allModals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {
     if (!evt.target.closest(".modal__container")) {
@@ -104,10 +106,6 @@ allModals.forEach((modal) => {
     }
   });
 });
-
-//TODO
-//add event listener for clicking off the modal
-//fix event listener for hitting escape
 
 //Saves profile info and closes the modal.
 editProfileForm.addEventListener("submit", (evt) => {

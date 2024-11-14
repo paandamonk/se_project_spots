@@ -9,6 +9,7 @@ const settings = {
   errorClass: "modal__error_visible",
 };
 
+//Function to show the input error and add correct styles.
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("modal__input_type_error");
@@ -16,6 +17,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   errorElement.classList.add("modal__input-error_active");
 };
 
+//Function to remove the input error and remove styles.
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove("modal__input_type_error");
@@ -23,6 +25,7 @@ const hideInputError = (formElement, inputElement) => {
   errorElement.textContent = "";
 };
 
+//Function to check that the input is valid and handles whether or not to show the input error.
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
@@ -31,12 +34,14 @@ const checkInputValidity = (formElement, inputElement) => {
   }
 };
 
+//Function to verify a form has all valid inputs. Used to toggle the button.
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
+//Function to toggle the button state. calls hasInvalidInput function to verify validity of the inputs.
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("button_inactive");
@@ -45,6 +50,7 @@ const toggleButtonState = (inputList, buttonElement) => {
   }
 };
 
+//Function that sets all the event listeners for the inputs and the submit button.
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(
     formElement.querySelectorAll(config.inputSelector)
@@ -60,6 +66,7 @@ const setEventListeners = (formElement, config) => {
   });
 };
 
+//Function that kicks off the validation chain.
 const enableValidation = (config) => {
   const formList = document.querySelectorAll(config.formSelector);
 
