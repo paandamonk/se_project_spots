@@ -60,12 +60,27 @@ function getCardElement(item) {
 
 //generic open modal function
 function openModal(modal) {
+  const inputList = Array.from(modal.querySelectorAll(settings.inputSelector));
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closePopopWithEscape);
+  toggleButtonState(inputList, submitBtn);
+}
+
+//event listener function to be added and removed
+function closePopopWithEscape(evt) {
+  if (evt.key === "Escape") {
+    const openModal = document.querySelector(".modal_opened");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
 }
 
 //generic close modal function
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closePopopWithEscape);
+  console.log("event listener removed");
 }
 
 //all the constant elements used multiple times throughout
@@ -86,22 +101,15 @@ const inputCaption = document.querySelector("#add-card-caption-input");
 const popupImage = imagePopup.querySelector(".image-popup__image");
 const popupTitle = imagePopup.querySelector(".image-popup__title");
 const allModals = document.querySelectorAll(".modal");
-
-//Adds a keydown event listener to the document, so that if a modal is opened, hitting escape will close it.
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    allModals.forEach((modal) => {
-      if (modal.classList.contains("modal_opened")) {
-        closeModal(modal);
-      }
-    });
-  }
-});
+const submitBtn = document.querySelector(".modal__submit-button");
 
 //Adds a "click" event listener to close the modal if a click is detected off the container.
 allModals.forEach((modal) => {
   modal.addEventListener("click", (evt) => {
-    if (!evt.target.closest(".modal__container")) {
+    if (
+      !evt.target.closest(".image-popup__image") &&
+      !evt.target.closest(".modal__container")
+    ) {
       closeModal(modal);
     }
   });
@@ -122,7 +130,9 @@ addCardForm.addEventListener("submit", (evt) => {
   const cardElement = getCardElement(inputCard);
   cardList.prepend(cardElement);
   closeModal(addModal);
-  addCardForm.reset();
+  /* addCardForm.reset();
+  submitBtn.disabled = true; */
+  resetValidation(addCardForm, submitBtn, settings);
 });
 
 //opens the edit profile modal

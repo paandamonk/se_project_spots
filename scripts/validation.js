@@ -12,7 +12,7 @@ const settings = {
 //Function to show the input error and add correct styles.
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add("modal__input_type_error");
+  inputElement.classList.add(settings.inputErrorClass);
   errorElement.textContent = errorMessage;
   errorElement.classList.add("modal__input-error_active");
 };
@@ -20,7 +20,7 @@ const showInputError = (formElement, inputElement, errorMessage) => {
 //Function to remove the input error and remove styles.
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove("modal__input_type_error");
+  inputElement.classList.remove(settings.inputErrorClass);
   errorElement.classList.remove("modal__input-error_active");
   errorElement.textContent = "";
 };
@@ -44,10 +44,15 @@ const hasInvalidInput = (inputList) => {
 //Function to toggle the button state. calls hasInvalidInput function to verify validity of the inputs.
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("button_inactive");
+    buttonElement.disabled = true;
   } else {
-    buttonElement.classList.remove("button_inactive");
+    buttonElement.disabled = false;
   }
+};
+
+const resetValidation = (formElement, buttonElement) => {
+  formElement.reset();
+  buttonElement.disabled = true;
 };
 
 //Function that sets all the event listeners for the inputs and the submit button.
