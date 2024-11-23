@@ -130,9 +130,7 @@ addCardForm.addEventListener("submit", (evt) => {
   const cardElement = getCardElement(inputCard);
   cardList.prepend(cardElement);
   closeModal(addModal);
-  /* addCardForm.reset();
-  submitBtn.disabled = true; */
-  resetValidation(addCardForm, submitBtn, settings);
+  resetValidation(addCardForm, submitBtn);
 });
 
 //opens the edit profile modal

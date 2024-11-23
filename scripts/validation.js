@@ -44,15 +44,19 @@ const hasInvalidInput = (inputList) => {
 //Function to toggle the button state. calls hasInvalidInput function to verify validity of the inputs.
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
+    console.log("logged");
     buttonElement.disabled = true;
   } else {
+    console.log("false logged");
     buttonElement.disabled = false;
   }
 };
 
+//Function to reset validation after submitting a form.
 const resetValidation = (formElement, buttonElement) => {
   formElement.reset();
   buttonElement.disabled = true;
+  console.log(buttonElement.disabled);
 };
 
 //Function that sets all the event listeners for the inputs and the submit button.
