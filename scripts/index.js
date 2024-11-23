@@ -130,7 +130,7 @@ addCardForm.addEventListener("submit", (evt) => {
   const cardElement = getCardElement(inputCard);
   cardList.prepend(cardElement);
   closeModal(addModal);
-  resetValidation(addCardForm, submitBtn);
+  resetForm(addCardForm, submitBtn);
 });
 
 //opens the edit profile modal
@@ -138,6 +138,10 @@ editBtn.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputDesc.value = profileDesc.textContent;
   openModal(editModal);
+  resetValidation(
+    editProfileForm,
+    Array.from(editModal.querySelectorAll(settings.inputSelector))
+  );
 });
 
 //opens the add card modal

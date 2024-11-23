@@ -52,11 +52,17 @@ const toggleButtonState = (inputList, buttonElement) => {
   }
 };
 
-//Function to reset validation after submitting a form.
-const resetValidation = (formElement, buttonElement) => {
+//Function to reset card form after submitting.
+const resetForm = (formElement, buttonElement) => {
   formElement.reset();
   buttonElement.disabled = true;
-  console.log(buttonElement.disabled);
+};
+
+//function to reset form validation.
+const resetValidation = (formElement, inputList) => {
+  inputList.forEach((input) => {
+    hideInputError(formElement, input);
+  });
 };
 
 //Function that sets all the event listeners for the inputs and the submit button.
