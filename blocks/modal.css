@@ -113,7 +113,7 @@
   border-radius: 8px;
 }
 
-.modal__submit-button:not(:disabled):hover {
+.modal__submit-button:hover {
   opacity: 80%;
 }
 
@@ -121,7 +121,7 @@
   opacity: 100%;
 }
 
-.modal__submit-button:disabled {
+.modal__submit-button_disabled {
   opacity: 50%;
   cursor: not-allowed;
 }

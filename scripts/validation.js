@@ -4,33 +4,38 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__submit-button",
-  inactiveButtonClass: "modal__button_disabled",
+  inactiveButtonClass: "modal__submit-button_disabled",
   inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
+  errorClassActive: "modal__input-error_active",
 };
 
 //Function to show the input error and add correct styles.
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.add(settings.inputErrorClass);
+  inputElement.classList.add(config.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("modal__input-error_active");
+  errorElement.classList.add(config.errorClassActive);
 };
 
 //Function to remove the input error and remove styles.
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, config) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(settings.inputErrorClass);
-  errorElement.classList.remove("modal__input-error_active");
+  errorElement.classList.remove(settings.errorClassActive);
   errorElement.textContent = "";
 };
 
 //Function to check that the input is valid and handles whether or not to show the input error.
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      config
+    );
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, config);
   }
 };
 
@@ -42,26 +47,30 @@ const hasInvalidInput = (inputList) => {
 };
 
 //Function to toggle the button state. calls hasInvalidInput function to verify validity of the inputs.
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
-    console.log("logged");
+    console.log("invalid input");
+    buttonElement.classList.add(config.inactiveButtonClass);
     buttonElement.disabled = true;
+    console.log(buttonElement.className.split(" "));
   } else {
-    console.log("false logged");
+    console.log("valid");
+    buttonElement.classList.remove(config.inactiveButtonClass);
     buttonElement.disabled = false;
+    console.log(buttonElement.className.split(" "));
   }
 };
 
 //Function to reset card form after submitting.
-const resetForm = (formElement, buttonElement) => {
+/* const resetForm = (formElement, buttonElement) => {
   formElement.reset();
-  buttonElement.disabled = true;
-};
+  buttonElement.classList.add(settings.inactiveButtonClass);
+}; */
 
 //function to reset form validation.
-const resetValidation = (formElement, inputList) => {
+const resetValidation = (formElement, inputList, config) => {
   inputList.forEach((input) => {
-    hideInputError(formElement, input);
+    hideInputError(formElement, input, config);
   });
 };
 
@@ -71,12 +80,12 @@ const setEventListeners = (formElement, config) => {
     formElement.querySelectorAll(config.inputSelector)
   );
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, config);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
-      checkInputValidity(formElement, inputElement);
-      toggleButtonState(inputList, buttonElement);
+      checkInputValidity(formElement, inputElement, config);
+      toggleButtonState(inputList, buttonElement, config);
     });
   });
 };

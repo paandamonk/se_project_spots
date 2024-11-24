@@ -63,7 +63,7 @@ function openModal(modal) {
   const inputList = Array.from(modal.querySelectorAll(settings.inputSelector));
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closePopopWithEscape);
-  toggleButtonState(inputList, submitBtn);
+  toggleButtonState(inputList, submitBtn, settings);
 }
 
 //event listener function to be added and removed
@@ -129,8 +129,8 @@ addCardForm.addEventListener("submit", (evt) => {
   const inputCard = { name: inputCaption.value, link: inputLink.value };
   const cardElement = getCardElement(inputCard);
   cardList.prepend(cardElement);
+  addCardForm.reset();
   closeModal(addModal);
-  resetForm(addCardForm, submitBtn);
 });
 
 //opens the edit profile modal
@@ -140,7 +140,8 @@ editBtn.addEventListener("click", () => {
   openModal(editModal);
   resetValidation(
     editProfileForm,
-    Array.from(editModal.querySelectorAll(settings.inputSelector))
+    Array.from(editModal.querySelectorAll(settings.inputSelector)),
+    settings
   );
 });
 
@@ -154,13 +155,6 @@ const closeButtons = document.querySelectorAll(".modal__close");
 closeButtons.forEach((button) => {
   const popup = button.closest(".modal");
   button.addEventListener("click", () => closeModal(popup));
-});
-
-//iterates over all like buttons in the document
-const cardLikeBtns = document.querySelectorAll(".card__like-button");
-cardLikeBtns.forEach((button) => {
-  const likeButton = button.closest(".card");
-  button.addEventListener("click", toggleLike(likeButton));
 });
 
 //creates the initial card list upon opening the page.
