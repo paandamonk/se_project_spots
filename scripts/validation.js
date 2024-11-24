@@ -20,8 +20,8 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
 //Function to remove the input error and remove styles.
 const hideInputError = (formElement, inputElement, config) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(settings.inputErrorClass);
-  errorElement.classList.remove(settings.errorClassActive);
+  inputElement.classList.remove(config.inputErrorClass);
+  errorElement.classList.remove(config.errorClassActive);
   errorElement.textContent = "";
 };
 
@@ -52,20 +52,12 @@ const toggleButtonState = (inputList, buttonElement, config) => {
     console.log("invalid input");
     buttonElement.classList.add(config.inactiveButtonClass);
     buttonElement.disabled = true;
-    console.log(buttonElement.className.split(" "));
   } else {
     console.log("valid");
     buttonElement.classList.remove(config.inactiveButtonClass);
     buttonElement.disabled = false;
-    console.log(buttonElement.className.split(" "));
   }
 };
-
-//Function to reset card form after submitting.
-/* const resetForm = (formElement, buttonElement) => {
-  formElement.reset();
-  buttonElement.classList.add(settings.inactiveButtonClass);
-}; */
 
 //function to reset form validation.
 const resetValidation = (formElement, inputList, config) => {

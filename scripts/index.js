@@ -63,7 +63,6 @@ function openModal(modal) {
   const inputList = Array.from(modal.querySelectorAll(settings.inputSelector));
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closePopopWithEscape);
-  toggleButtonState(inputList, submitBtn, settings);
 }
 
 //event listener function to be added and removed
@@ -80,7 +79,6 @@ function closePopopWithEscape(evt) {
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closePopopWithEscape);
-  console.log("event listener removed");
 }
 
 //all the constant elements used multiple times throughout
@@ -102,15 +100,22 @@ const popupImage = imagePopup.querySelector(".image-popup__image");
 const popupTitle = imagePopup.querySelector(".image-popup__title");
 const allModals = document.querySelectorAll(".modal");
 const submitBtn = document.querySelector(".modal__submit-button");
+const editList = Array.from(
+  editProfileForm.querySelectorAll(settings.inputSelector)
+);
+const addList = Array.from(
+  addCardForm.querySelectorAll(settings.inputSelector)
+);
 
-//Adds a "click" event listener to close the modal if a click is detected off the container.
-allModals.forEach((modal) => {
-  modal.addEventListener("click", (evt) => {
-    if (
-      !evt.target.closest(".image-popup__image") &&
-      !evt.target.closest(".modal__container")
-    ) {
-      closeModal(modal);
+//Iterates over all popups. when clicking outside the popup or on the close button, the popup closes.
+const popups = document.querySelectorAll(".popup");
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+    if (evt.target.classList.contains("modal_opened")) {
+      closeModal(popup);
+    }
+    if (evt.target.classList.contains("modal__close")) {
+      closeModal(popup);
     }
   });
 });
@@ -137,24 +142,15 @@ addCardForm.addEventListener("submit", (evt) => {
 editBtn.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputDesc.value = profileDesc.textContent;
+  toggleButtonState(editList, submitBtn, settings);
   openModal(editModal);
-  resetValidation(
-    editProfileForm,
-    Array.from(editModal.querySelectorAll(settings.inputSelector)),
-    settings
-  );
+  resetValidation(editProfileForm, editList, settings);
 });
 
 //opens the add card modal
 addBtn.addEventListener("click", () => {
+  toggleButtonState(addList, submitBtn, settings);
   openModal(addModal);
-});
-
-//iterates over all the close buttons in the document to close any modal that is opened upon clicking.
-const closeButtons = document.querySelectorAll(".modal__close");
-closeButtons.forEach((button) => {
-  const popup = button.closest(".modal");
-  button.addEventListener("click", () => closeModal(popup));
 });
 
 //creates the initial card list upon opening the page.
