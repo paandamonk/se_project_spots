@@ -9,6 +9,7 @@ const settings = {
   errorClassActive: "modal__input-error_active",
 };
 
+//verifying can push
 //Function to show the input error and add correct styles.
 const showInputError = (formElement, inputElement, errorMessage, config) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
