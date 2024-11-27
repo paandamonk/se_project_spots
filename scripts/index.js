@@ -60,7 +60,6 @@ function getCardElement(item) {
 
 //generic open modal function
 function openModal(modal) {
-  const inputList = Array.from(modal.querySelectorAll(settings.inputSelector));
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closePopopWithEscape);
 }
@@ -92,20 +91,18 @@ const profileName = document.querySelector(".profile__name");
 const profileDesc = document.querySelector(".profile__description");
 const inputName = document.querySelector("#name");
 const inputDesc = document.querySelector("#description");
-const editProfileForm = document.forms["edit-profile-form"];
-const addCardForm = document.forms["add-card-form"];
+const profileForm = document.forms["edit-profile-form"];
+const cardForm = document.forms["add-card-form"];
 const inputLink = document.querySelector("#add-card-link-input");
 const inputCaption = document.querySelector("#add-card-caption-input");
 const popupImage = imagePopup.querySelector(".image-popup__image");
 const popupTitle = imagePopup.querySelector(".image-popup__title");
-const allModals = document.querySelectorAll(".modal");
-const submitBtn = document.querySelector(".modal__submit-button");
+const profileSubmitBtn = document.querySelector("#profile-submit");
+const cardSubmitBtn = document.querySelector("#card-submit");
 const editList = Array.from(
-  editProfileForm.querySelectorAll(settings.inputSelector)
+  profileForm.querySelectorAll(settings.inputSelector)
 );
-const addList = Array.from(
-  addCardForm.querySelectorAll(settings.inputSelector)
-);
+const addList = Array.from(cardForm.querySelectorAll(settings.inputSelector));
 
 //Iterates over all popups. when clicking outside the popup or on the close button, the popup closes.
 const popups = document.querySelectorAll(".popup");
@@ -121,7 +118,7 @@ popups.forEach((popup) => {
 });
 
 //Saves profile info and closes the modal.
-editProfileForm.addEventListener("submit", (evt) => {
+profileForm.addEventListener("submit", (evt) => {
   profileName.textContent = inputName.value;
   profileDesc.textContent = inputDesc.value;
   closeModal(editModal);
@@ -129,13 +126,13 @@ editProfileForm.addEventListener("submit", (evt) => {
 });
 
 //creates a new card, adds it to the card list, and closes the modal. also clears the input text.
-addCardForm.addEventListener("submit", (evt) => {
+cardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const inputCard = { name: inputCaption.value, link: inputLink.value };
   const cardElement = getCardElement(inputCard);
   cardList.prepend(cardElement);
-  addCardForm.reset();
-  disableButton(submitBtn, settings);
+  cardForm.reset();
+  disableButton(cardSubmitBtn, settings);
   closeModal(addModal);
 });
 
@@ -143,14 +140,13 @@ addCardForm.addEventListener("submit", (evt) => {
 editBtn.addEventListener("click", () => {
   inputName.value = profileName.textContent;
   inputDesc.value = profileDesc.textContent;
-  toggleButtonState(editList, submitBtn, settings);
+  toggleButtonState(editList, profileSubmitBtn, settings);
   openModal(editModal);
-  resetValidation(editProfileForm, editList, settings);
+  resetValidation(profileForm, editList, settings);
 });
 
 //opens the add card modal
 addBtn.addEventListener("click", () => {
-  toggleButtonState(addList, submitBtn, settings);
   openModal(addModal);
 });
 
